@@ -1,0 +1,47 @@
+.slider{
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+   
+}
+
+.slides img{
+    display: none;
+    width: 100%;
+    height: 600px;
+}
+
+.slides .banner{
+    top: 0;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.685);
+}
+.slides .banner p{
+    font-size: 25px;
+}
+
+img.displaySlide{
+    display: block;
+}
+
+.control-slider-panel{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding-top: 10px;
+}
+
+button{
+    width: 70px;
+    height: 30px;
+    color: red;
+    background-color: black;
+    border-radius: 20px;
+}
+
+button:hover{
+    color: black;
+    background-color: red;
+    cursor: pointer;
+}
