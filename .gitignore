@@ -1,1 +1,4 @@
-Backend/db/db.js
+Frontend/Pages/test.html
+Backend/.env
+Backend/generated
+Backend/node_modules

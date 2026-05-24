@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model manutdplayers {
+  player_id    Int      @id @default(autoincrement())
+  name         String   @db.VarChar(100)
+  salary       Decimal? @db.Decimal(12, 2)
+  age          Int?
+  height       Decimal? @db.Decimal(4, 2)
+  career       String?  @db.Text
+  position     String?  @db.VarChar(50)
+  avg_speed    Decimal? @db.Decimal(5, 2)
+  weight       Decimal? @db.Decimal(5, 2)
+  market_value Decimal? @db.Decimal(12, 2)
+  ImagePath    String?  @db.Text
+}

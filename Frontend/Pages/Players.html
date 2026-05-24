@@ -10,16 +10,16 @@
     <title>Players</title>
 </head>
 <body>
-    <nav>
+
     <nav>
         <a href="/Frontend/Pages/index.html"><li>Home</li></a>
         <a href="/Frontend/Pages/Players.html"><li>Players</li></a>
         <a href=""><li>About Us</li></a>
     </nav>
-    </nav>
 
     <div class="main-container">
         <div class="search-container">
+            <h1>Player List</h1>
             <input type="text" id="SearchPalyer">
             <button onclick="SearchValue()">Search</button>
         </div>
@@ -29,20 +29,20 @@
             <div class="sort-container">
                 <label for="">Sort Options</label>
                 <select name="ValueToSort" id="SortValue">
-                    <option value="Age">Age</option>
-                    <option value="Height">Height</option>
-                    <option value="Salary">Salary</option>
-                    <option value="Transfer Fee">Transfer Fee</option>
+                    <option value="age">Age</option>
+                    <option value="height">Height</option>
+                    <option value="salary">Salary</option>
+                    <option value="market_value">Market Value</option>
                 </select>
                 <label for="">Sort Order</label>
                 <select name="Order" id="Order">
-                    <option value="Ascending">Ascending</option>
-                    <option value="Descending">Descending</option>
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
                 </select>
             </div>
 
             <div class="attribute-container">
-                <fieldset>
+                <fieldset id ="FieldPlayers">
                     <Legend>Select Position</Legend>
                     <label for="">Goalkeeper</label>
                     <input type="checkbox" value="Goalkeeper">
@@ -53,16 +53,18 @@
                     <label for="">Midfielder</label>
                     <input type="checkbox" value="Midfielder">
 
-                    <label for="">Attacker</label>
-                    <input type="checkbox" value="Attacker">
+                    <label for="">Forward</label>
+                    <input type="checkbox" value="Forward">
                 </fieldset>
             </div>
 
-            <div class="range-container">
-                <label for="">Salary</label>
-                <input type="range" id="SalaryRange" min="0" max="500000">
+            <div class="button-container">
+                <button onclick="resetFilter()" class="resetButton">Reset</button>
+                <button onclick="FilterPlayer()" class="applyButton">Apply</button>
             </div>
 
+            <label class="createLabel">Create Player</label>
+            <button onclick="CreatePlayer()" class="createButton">Add Player</button>
         </div>
 
         <div class="player-container" id="player-container"></div>

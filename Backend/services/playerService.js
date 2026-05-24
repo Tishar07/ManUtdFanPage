@@ -1,22 +1,44 @@
-const db = require("../db/db");
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
 // Get all players
-exports.getAllPlayers = () => {
-    return new Promise((resolve, reject) => {
-        db.query("SELECT * FROM manutdplayers", (err, results) => {
-            if (err) return reject(err);
-            resolve(results);
-        });
-    });
-};
+exports.getAllPlayers = async () => {
+    return await prisma.manutdplayers.findMany();
+}
 
-// Create Player to correct
-exports.createUser = (user) => {
-    return new Promise((resolve, reject) => {
-        const sql = "INSERT INTO users (name, email) VALUES (?, ?)";
-        db.query(sql, [user.name, user.email], (err, result) => {
-            if (err) return reject(err);
-            resolve({ id: result.insertId, ...user });
-        });
+
+exports.filterAndSortPlayers = async (sort, order, positionReq) => {
+    const where = {};
+    if (positionReq.length > 0) {
+        where.position = {
+            in: positionReq
+        };
+    }
+
+    return await prisma.manutdplayers.findMany({
+        where,
+        orderBy: {
+            [sort]: order
+        }
     });
-};
+}
+
+
+exports.createNewPlayer= async(Pname,Salary,Age,Height,Career,Position,Avg_speed,Weight,Market_value,imgPath )=>{
+    await prisma.manutdplayers.create({
+        data:{
+            name:Pname,
+            salary:Salary,
+            age:Age,
+            height:Height,
+            career:Career,
+            position:Position,
+            avg_speed:Avg_speed,
+            weight:Weight,
+            market_value:Market_value,
+            ImagePath:imgPath
+        }
+    });
+
+}
+

@@ -3,10 +3,10 @@ const router = express.Router();
 
 const playerController = require("../controllers/playerController.js");
 
-// GET all users
-router.get("/", playerController.getAllPlayers);
+router.get("/GetAllPlayer", playerController.getAllPlayers);
 
-// CREATE user
-router.post("/", playerController.createPlayer);
+router.post("/FilterPlayer", playerController.getFilterPlayers);
+
+router.post("/CreatePlayer",playerController.createPlayer)
 
 module.exports = router;
